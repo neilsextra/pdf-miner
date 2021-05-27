@@ -1,0 +1,42 @@
+extends layout
+
+block content
+  div.main(style="width: 100%; height:100%; z-index:99; overflow:hidden;")
+    div(style="position: absolute; top:0px; bottom:0px; left:0px; right:0px; overflow:hidden; background: url('icons/wallpaper.jpg'); background-size: cover;  background-repeat: no-repeat;  background-blend-mode: lighten;")
+      h1#header &nbsp;
+        div(style="position:absolute; top:6px; height:60px; width:200px; color:white; left:6px; opacity:1.0")
+          img(src='/icons/PNGPIX-COM-Microsoft-Logo-PNG-Transparent.png' style='height:45px; width:180px;')  
+        div(style="position:absolute; top:-12px; height:18px; margin-left:10px; width:480px; color:#808080; left:180px; font-size: 26px;")
+          p : Cognitive - Search
+      div.borderbox(style="position:absolute; overflow:auto; top:52px; bottom:20px; left: 0px; right: 0px; margin:10px;")
+        div.mainbox(id="mainbox")
+          div(style="padding:20px; margin-left:auto; margin-right:auto")
+            label(style='font-size: 18px; font-weight: bold; top:20px; left:300px; height:12px; width:180px; color:white; white-space:') &nbsp; Criteria:&nbsp;      
+            input#criteria(name="criteria" style="vertical-align: position: absolute; top:25px; font-size: 18px; left:300px; height: 32px; width: 500px; border:solid; color: black; color: black" placeholder="Criteria...")
+            a#search(href="" style="border:solid; color: white; font-size: 16px; text-decoration: none; padding:10px; margin-left:10px;") Search
+          div(style="position: absolute; overflow:auto; padding:10px; top:80px; left:20px; right:20px; bottom:20px; border:solid; color: rgb(110,110,110);")
+             div#result(style="position:absolute; left:20px; top:-4px; width:180px; bottom:20px; border:solid; color: rgb(110,110,110); overflow:auto;")
+                div#thumbnails.thumbnails(style="position:absolute; width:100%; height:100%; padding:10px;")
+          div(style="position: absolute;padding:10px; top:111px; bottom:43px; left: 240px; right:500px; border:solid; color: rgb(110,110,110); overflow:auto;")
+            div#structure
+          div#breakdown(style="position:absolute; top:110px; right:35px; width:430px; bottom:44px; border:3px solid #FFFFFF; background-color: rgba(255,255,255,0.5 ); padding-top:10px; padding-bottom:10px; padding-left:10px; padding-right:10px;")
+            div.tab#tab(style="display:none")
+              button.tablinks#tab1(onclick="showTab(event, 'peopleFrame', 'tab1')" value="People") People
+              button.tablinks#tab2(onclick="showTab(event, 'organizationFrame', 'tab2')" value="Organizations") Organizations
+              button.tablinks#tab3(onclick="showTab(event, 'locationFrame', 'tab3')" value="Locations") Locations
+            div.tabcontent#peopleFrame(style="left:10px; right:10px; top:60px; bottom:10px; overflow:auto; position:absolute; background-color:rgba(255,255,255,0.4);")
+              div#people(style="position:absolute; left:0px; right:0px; top:0px; bottom:0px;")
+            div.tabcontent#organizationFrame(style="left:10px; right:10px; top:60px; bottom:10px; overflow:auto; position:absolute; background-color:rgba(255,255,255,0.4);")
+              div#organizations(style="position:absolute; left:0px; right:0px; top:0px; bottom:0px;")
+            div.tabcontent#locationFrame(style="left:10px; right:10px; top:60px; bottom:10px; overflow:auto; position:absolute; background-color:rgba(255,255,255,0.4);")
+              div#locations(style="position:absolute; left:0px; right:0px; top:0px; bottom:0px;")
+
+    div#waitDialog(class="modal")
+      div(style="position:fixed; width:100%; height:100%;")
+        div.loader     
+  script(src="/modules/jquery/dist/jquery.min.js" ) 
+  script#pdf-js(src="/modules/pdfjs-dist/build/pdf.js")
+  script#pdf-js-web(src="/modules/pdfjs-dist/web/pdf_viewer.js")
+  script#pdf-js-worker(src="/modules/pdfjs-dist/build/pdf.worker.js")
+  script(src="/javascripts/main.js")
+
